@@ -75,7 +75,7 @@
             "description": "Dosyalarınız için özel bir dosya başlığı. file_name, file_caption, file_size ile biçimlendirilebilir. Daha iyi anlamak için Readme.md'yi okuyun.",
             "required": false
         },
-        "DATABASE_URI": {
+        "DATABASE_URL": {
             "description": "mongoDB URI. Bu değeri https://www.mongodb.com adresinden alın. Daha fazla yardım için bu videoyu izleyin - https://youtu.be/dsuTn4qV2GA",
             "required": true
         },
