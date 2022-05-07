@@ -1,0 +1,112 @@
+{
+    "name": "CegaMariaSoft",
+    "description": "Satır içi modda çalışan bir telegram botuyum.",
+    "stack": "container",
+    "keywords": [
+      "telegram",
+      "pyrogram",
+      "media",
+      "search",
+      "channel",
+      "index",
+      "inline"
+    ],
+    "website": "https://github.com/hackertyus/CegaMariaSoft",
+    "repository": "https://github.com/hackertyus/CegaMariaSoft",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Bot jetonunuz.",
+            "required": true
+        },
+        "API_ID": {
+            "description": "Bu değeri https://my.telegram.org adresinden alın.",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Bu değeri https://my.telegram.org adresinden alın.",
+            "required": true
+        },
+        "CHANNELS": {
+            "description": "Kanal yada grubun kullanıcı adı veya kimliği. Birden çok kimlik varsa boşlukla ayırın.",
+            "required": false
+        },
+        "BROADCAST_AS_COPY": {
+            "description": "Değer True veya False olmalıdır. Yayınları etiketli veya kopya olarak yayınlayın.(True etiketsiz)",
+            "value": "True",
+            "required": false
+        },
+        "HEROKU_API_KEY": {
+            "description": "Heroku API",
+            "required": true
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Heroku APP Name",
+            "required": true
+        },
+        "ADMINS": {
+            "description": "Bot yöneticisinin kullanıcı adı veya ID numarası. Birden çok yöneticiyi boşlukla ayırın.",
+            "required": true
+        },
+        "PICS": {
+            "description": "Add some telegraph link of pictures .",
+            "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Bot Günlükleri, -100xxxxxxx ile başlayan bir kanal kimliği yazın.",
+            "required": false
+        },
+        "SUPPORT_CHAT": {
+            "description": "Bir Destek Grubunun Kullanıcı Adı / ADMIN. ( Should be username without @ and not ID)",
+            "required": false
+        },
+        "AUTH_USERS": {
+            "description": "Satır içi aramaya erişim sağlayacak kullanıcıların kullanıcı adı veya kimliği. Birden çok kullanıcıyı boşlukla ayırın.\nBot kullanımını kısıtlamak istemiyorsanız boş bırakın.",
+            "required": false
+        },
+        "AUTH_CHANNEL": {
+            "description": "Kanal ID. Bu kanalda botun yönetici olduğundan emin olun. Bu kanala abone olmadan kullanıcılar bot kullanamaz.",
+            "required": false
+        },   
+        "USE_CAPTION_FILTER": {
+            "description": "Botun arama sonuçlarını iyileştirmek için caption kullanıp kullanmayacağı. (True veya False)",
+            "required": false
+        },
+        "CUSTOM_FILE_CAPTION": {
+            "description": "Dosyalarınız için özel bir dosya başlığı. file_name, file_caption, file_size ile biçimlendirilebilir. Daha iyi anlamak için Readme.md'yi okuyun.",
+            "required": false
+        },
+        "DATABASE_URI": {
+            "description": "mongoDB URI. Bu değeri https://www.mongodb.com adresinden alın. Daha fazla yardım için bu videoyu izleyin - https://youtu.be/dsuTn4qV2GA",
+            "required": true
+        },
+        "DATABASE_NAME": {
+            "description": "mongoDB'deki veritabanının adı. Daha fazla yardım için bu videoyu izleyin - https://youtu.be/dsuTn4qV2GA",
+            "required": false
+        },
+        "COLLECTION_NAME": {
+            "description": "mongoDB için koleksiyon adı. Telegram_files varsayılandır. Aynı veritabanını kullanıyorsanız, her bot için farklı koleksiyon adı kullanın.",
+            "value": "Telegram_files",
+            "required": false
+        },
+        "CACHE_TIME": {
+            "description": "Satır içi sorgu sonucunun sunucuda önbelleğe alınabileceği saniye cinsinden maksimum süre",
+            "value": "300",
+            "required": false
+        },
+        "PASS": {
+            "description": "Şifreli giriş için",
+            "value": "123",
+            "required": false
+        }
+    },
+    "addons": [],
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
