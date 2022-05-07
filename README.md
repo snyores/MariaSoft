@@ -1,14 +1,14 @@
 <h1 align="center">
-  <b>Cega Maria Soft Bot</b>
+  <b>Maria Soft</b>
 </h1>
 
 
-[![Stars](https://img.shields.io/github/stars/hackertyus/CegaMariaSoft?style=flat-square&color=yellow)](https://github.com/hackertyus/CegaMariaSoft/stargazers)
-[![Forks](https://img.shields.io/github/forks/hackertyus/CegaMariaSoft?style=flat-square&color=orange)](https://github.com/hackertyus/CegaMariaSoft/fork)
-[![Size](https://img.shields.io/github/repo-size/hackertyus/CegaMariaSoft?style=flat-square&color=green)](https://github.com/hackertyus/CegaMariaSoft/)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hackertyus/CegaMariaSoft)   
-[![Contributors](https://img.shields.io/github/contributors/hackertyus/CegaMariaSoft?style=flat-square&color=green)](https://github.com/hackertyus/CegaMariaSoft/graphs/contributors)
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/hackertyus/CegaMariaSoft/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/hackertyus/CegaMariaSoft?style=flat-square&color=yellow)](https://github.com/Piracy-Team/MariaSoft/stargazers)
+[![Forks](https://img.shields.io/github/forks/hackertyus/CegaMariaSoft?style=flat-square&color=orange)](https://github.com/Piracy-Team/MariaSoft/fork)
+[![Size](https://img.shields.io/github/repo-size/hackertyus/CegaMariaSoft?style=flat-square&color=green)](https://github.com/Piracy-Team/MariaSoft/)   
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/Piracy-Team/MariaSoft)   
+[![Contributors](https://img.shields.io/github/contributors/Piracy-Team/MariaSoft?style=flat-square&color=green)](https://github.com/Piracy-Team/MariaSoft/graphs/contributors)
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/Piracy-Team/MariaSoft/blob/main/LICENSE)
 
 
 ## Özellikleri
@@ -33,7 +33,7 @@ Bu botu her yerde dağıtabilirsiniz.
 <details><summary>VPS'ye Dağıt</summary>
 <p>
 <pre>
-git clone https://github.com/EvamariaTG/evamaria
+git clone https://github.com/Piracy-Team/MariaSoft
 # Install Packages
 pip3 install -r requirements.txt
 Edit info.py with variables as given below then run bot
