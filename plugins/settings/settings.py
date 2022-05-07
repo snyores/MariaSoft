@@ -75,7 +75,7 @@ async def Login(c, m: "types.Message"):
                 return await m.reply(f"__Zaten giriş yaptınız.__ {VICTORY_HAND}")
             try:
                 msg = await m.reply(
-                    "**Şimdi bana şifre gönder.**\n\n__(İşlemi iptal etmek için /iptal komutunu kullanabilirsiniz.)__",
+                    "**Şifre gönderin.**\n\n__(İşlemi iptal etmek için /iptal komutunu kullanabilirsiniz.)__",
                     reply_markup=ForceReply(True))
                 _text = await c.listen(m.chat.id, filters=filters.text, timeout=90)
                 if _text.text:
