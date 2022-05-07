@@ -102,4 +102,4 @@ class Database:
         return user or None
 
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+db = Database(DATABASE_URL, DATABASE_NAME)
