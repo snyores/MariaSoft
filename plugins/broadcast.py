@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 import datetime
 import time
 from database.users_chats_db import db
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid, UserNotParticipant
 from pyrogram.enums import ChatMemberStatus
 from info import ADMINS, AUTH_CHANNEL, BROADCAST_AS_COPY
@@ -49,9 +50,35 @@ async def broadcast_messages(bot, user_id, message):
 
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
 async def broadcast_handler(bot, message):
-    users = await db.get_all_notif_user()
+    message = message.reply_to_message
+    await message.reply(
+        text='__Bunu yayınlamak istediğinizden emin misiniz...?__',
+        quote=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(text='Evet', callback_data='bdcast_cnfrm'),
+                    InlineKeyboardButton(text='Hayır', callback_data='close_data')
+                ]
+            ]
+        )
+    )
+    return
+
+
+@Client.on_callback_query(filters.user(ADMINS) & filters.regex('^bdcast_cnfrm$'))
+async def broadcast_confrm(bot, query):
+    message = query.message
     b_msg = message.reply_to_message
-    sts = await message.reply_text(text='Mesajı yayınlıyorum..')
+    if not b_msg:
+        await query.answer(
+            text='Mesaj bulunamadı.',
+            show_alert=True
+        )
+        await message.delete()
+        return
+    users = await db.get_all_notif_user()
+    await message.edit(text='Mesajı yayınlıyorum..', reply_markup=None)
     start_time = time.time()
     total_users = await db.total_notif_users_count()
     done = 0
@@ -73,19 +100,19 @@ async def broadcast_handler(bot, message):
         done += 1
         await asyncio.sleep(2)
         if not done % 20:
-            await sts.edit(
+            await message.edit(
                 f"Yayın devam ediyor:\n\n"
                 f"Toplam Kullanıcılar: {total_users}\n"
-                f"Tamamlanmış: {done} / {total_users}\n"
+                f"Tamamlanan: {done} / {total_users}\n"
                 f"Başarılı: {success}\n"
-                f"Engellenen: {blocked}\n"
+                f"Engelleyen: {blocked}\n"
                 f"Silinen: {deleted}")
     time_taken = datetime.timedelta(seconds=int(time.time() - start_time))
-    await sts.edit(
+    await message.edit(
         f"Yayın Tamamlandı:\n"
         f"{time_taken} saniye içinde tamamlandı.\n\n"
         f"Toplam Kullanıcılar: {total_users}\n"
-        f"Tamamlanmış: {done} / {total_users}\n"
+        f"Tamamlanan: {done} / {total_users}\n"
         f"Başarılı: {success}\n"
-        f"Engellenen: {blocked}\n"
+        f"Engelleyen: {blocked}\n"
         f"Silinen: {deleted}")
